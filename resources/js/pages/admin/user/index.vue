@@ -7,13 +7,13 @@
 
 </div>
 <table class="min-w-full divide-y mt-6 divide-gray-200 bg-white rounded-lg shadow-md">
-    <thead class="bg-gray-50">
+    <th class="bg-gray-50">
       <tr>
-        <th scope="col" class="px-6 py-3 text-left text-xs bg-gray-700 text-white font-medium text-gray-500 uppercase tracking-wider">Name</th>
-        <th scope="col" class="px-6 py-3 text-left text-xs bg-gray-700 text-white font-medium text-gray-500 uppercase tracking-wider">email</th>
-        <th scope="col" class="px-6 py-3 text-left text-xs bg-gray-700 text-white font-medium text-gray-500 uppercase tracking-wider">pass</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs bg-gray-700 text-white font-medium  uppercase tracking-wider">Name</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs bg-gray-700 text-white font-medium uppercase tracking-wider">email</th>
+        <th scope="col" class="px-6 py-3 text-left text-xs bg-gray-700 text-white font-medium uppercase tracking-wider">pass</th>
       </tr>
-    </thead>
+
     <tbody class="bg-white divide-y divide-gray-200">
       <tr v-for="(item,index) in data.data" :key="index">
         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ item.name }}</td>
