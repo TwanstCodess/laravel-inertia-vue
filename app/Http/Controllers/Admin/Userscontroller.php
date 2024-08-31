@@ -8,9 +8,9 @@ use App\Models\User;
 
 class Userscontroller extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data=User::paginate(15);
+        $data=User::when($request->search,function($search) use($request) {return $search->where('name','like','%'.$request->search.'%')->orWhere('email','like','%'.$request->search.'%');})->paginate(15);
         return inertia('admin/user/index',['data'=>$data]);
     }
 
