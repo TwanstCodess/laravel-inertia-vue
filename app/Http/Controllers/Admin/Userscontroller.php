@@ -10,8 +10,8 @@ class Userscontroller extends Controller
 {
     public function index(Request $request)
     {
-        $data=User::when($request->search,function($search) use($request) {return $search->where('name','like','%'.$request->search.'%')->orWhere('email','like','%'.$request->search.'%');})->paginate(15);
-        return inertia('admin/user/index',['data'=>$data]);
+        $data=User::when($request->search,function($search) use($request) {return $search->where('name','like','%'.$request->search.'%')->orWhere('email','like','%'.$request->search.'%');})->paginate(15)->withQueryString();
+        return inertia('admin/user/index',['data'=>$data,'search'=>$request->search]);
     }
 
     public function create()

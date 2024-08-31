@@ -40,8 +40,8 @@
 
 <script setup>
 import {Link, router} from '@inertiajs/vue3'
-defineProps(['data'])
-let search = ref('')
+let props=defineProps(['data','search'])
+let search = ref(props.search)
 watch(search, value => {
    router.get('/admin/user', {search: value}, {preserveState: true, replace: true,only: ['data']})
 })
