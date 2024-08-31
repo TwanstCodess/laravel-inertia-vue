@@ -13,7 +13,7 @@
         <th scope="col" class="px-6 py-3 text-left text-xs bg-gray-700 text-white font-medium uppercase tracking-wider">email</th>
         <th scope="col" class="px-6 py-3 text-left text-xs bg-gray-700 text-white font-medium uppercase tracking-wider">pass</th>
       </tr>
-
+    </th>
     <tbody class="bg-white divide-y divide-gray-200">
       <tr v-for="(item,index) in data.data" :key="index">
         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ item.name }}</td>
