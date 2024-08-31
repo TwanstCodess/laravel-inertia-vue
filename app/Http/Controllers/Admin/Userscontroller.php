@@ -10,7 +10,7 @@ class Userscontroller extends Controller
 {
     public function index()
     {
-        $data=User::paginate(2);
+        $data=User::paginate(15);
         return inertia('admin/user/index',['data'=>$data]);
     }
 

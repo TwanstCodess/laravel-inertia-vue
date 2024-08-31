@@ -1,5 +1,11 @@
 <template>
-<Link class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/admin/user/create">Create</Link>
+<div class="flex justify-between items-center">
+    <Link class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/admin/user/create">Create</Link>
+<div>
+    <input type="text" v-model="search" class="border border-gray-200 bg-gray-200 text-black rounded p-2 w-full">
+</div>
+
+</div>
 <table class="min-w-full divide-y mt-6 divide-gray-200 bg-white rounded-lg shadow-md">
     <thead class="bg-gray-50">
       <tr>
@@ -23,6 +29,7 @@
     :key="`link-${index}`"
     :href="item.url"
     v-html="item.label"
+    preserve-scroll
     class=" py-2 px-3 rounded shadow "
     :class="[!item.url?'bg-gray-300':'', item.active ? 'bg-gray-700 text-white' : '']"
   ></Link>
@@ -32,12 +39,19 @@
 </template>
 
 <script setup>
-import {Link} from '@inertiajs/vue3'
+import {Link, router} from '@inertiajs/vue3'
 defineProps(['data'])
+let search = ref('')
+watch(search, value => {
+   router.get('/admin/user', {search: value}, {preserveState: true, replace: true,only: ['data']})
+})
 </script>
 
 <script>
+import { ref } from 'vue'
 import layout from '@/layouts/admin.vue'
+import { watch } from '@vue/runtime-core'
+
 export default {
 layout: layout,
 }
